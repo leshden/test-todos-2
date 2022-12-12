@@ -1,0 +1,34 @@
+.contacts-container {
+  width: 670px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.contacts-title {
+  border-bottom: 1px solid Teal;
+  margin-bottom: 10px;
+}
+.contacts-header {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  justify-content:flex-start;
+  border: 1px solid Teal;
+}
+
+.contacts-name-title {
+  width: 100px;
+  border-right: 1px solid Teal;
+  text-align: center;
+}
+.contacts-ul-container {
+  width: 500px;
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid Teal;
+  border-top: none;
+}

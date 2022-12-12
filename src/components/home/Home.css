@@ -1,0 +1,21 @@
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-no-login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-no-login-title {
+  border-bottom: 1px solid Teal;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,45 @@
+.contact-container {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid Teal;
+}
+
+.contact-input {
+  width: 80px;
+  height: 25px;
+}
+
+.contact-input:disabled {
+  color: black;
+}
+
+.contact-input-read {
+  border: none;
+  background: none;
+}
+
+.contact-input-write {
+  border: 1px solid black;
+  background: white;
+}
+
+.contact-container-btn {
+  height: 100%;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-edit-btn {
+  width: 100%;
+}
+
+.contact-accept-btn {
+  width: 100%;
+}
