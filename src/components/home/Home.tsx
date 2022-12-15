@@ -34,7 +34,7 @@ const Home = () => {
       return (
         <div className='home-no-login-container'>
           <h1 className='home-no-login-title'>Добро пожаловать</h1>
-          <p>Для входа в <strong>Личный кабинет</strong> необходима <Link to='/login'>Авторизация</Link></p>
+          <p>Для входа в <strong>Список дел</strong> необходима <Link to='/login'>Авторизация</Link></p>
           <p>Если у вас еще нет аккаунта, то нужна <Link to='/register'>Регистрация</Link> </p>
         </div>
       );
