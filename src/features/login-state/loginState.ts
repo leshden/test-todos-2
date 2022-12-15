@@ -12,6 +12,7 @@ const loginState =  observable({
 } as LoginState);
 
 export const isLogin = () => loginState.login;
+export const error = () => loginState.error;
 
 export const loginU = async (user: User) => {
   const response = await loginUser(user);
@@ -23,6 +24,16 @@ export const loginU = async (user: User) => {
       loginState.error = null;
     })
 
-    console.log("");
+    console.log("Login");
   }
+}
+
+export const logout = () => {
+  runInAction(() => {
+    loginState.access_token = "";
+    loginState.login = false;
+    loginState.error = null;
+  })
+
+  console.log("Logout");
 }

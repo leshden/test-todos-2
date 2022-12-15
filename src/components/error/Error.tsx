@@ -1,7 +1,7 @@
 import './Error.css';
 
 type Props = {
-  message: string;
+  message: string | null | undefined;
 }
 
 const Error = ({message} : Props) => {

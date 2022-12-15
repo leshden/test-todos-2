@@ -1,17 +1,15 @@
 import {useState} from 'react';
-import { useSelector } from 'react-redux'
 import Error from '../error/Error'
-import {loginAsync} from '../../features/login-state/loginStateSlice';
-import {useAppDispatch, RootState} from '../../app/store';
+import {error} from '../../features/login-state/loginState'
+import {loginU} from '../../features/login-state/loginState';
+import { useNavigate } from "react-router-dom";
 import './Login.css';
 
 const Login = () => {
 
-  const dispatch = useAppDispatch();
-  const { error } = useSelector((state: RootState) => state.login)
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const onChangeEmail = (event: React.FormEvent<HTMLInputElement>):void => {
     setEmail(event.currentTarget.value);
@@ -23,12 +21,13 @@ const Login = () => {
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>):void => {
     event.preventDefault();
-    dispatch(loginAsync({email, password}))
+    loginU({email, password});
+    navigate ('/', {replace: true} );
   }
 
   const showError = () => {
-    if (error) {
-      return <Error message={error}/>
+    if (error()) {
+      return <Error message={error()}/>
     }
   }
 
