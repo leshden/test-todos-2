@@ -3,6 +3,7 @@ import TodoItemPanel from '../todo-item-panel/TodoItemPanel';
 import {TodoItem} from '../../interfaces/TodoItem';
 import {getTodoList, getTodos} from '../../features/todo-state/todoState';
 import { observer } from "mobx-react";
+import {Observer} from "mobx-react-lite";
 
 const TodoList = () => {
 
@@ -10,16 +11,25 @@ const TodoList = () => {
     getTodoList();
   }, [])
 
-  console.log('TODOLIST');
-  console.log(getTodos());
+  const ShowList = observer(() => {
+    if (getTodos().length) {
+      return (
+        <div>
+        <>
+          { getTodos().map(todo => {
+            return ( <TodoItemPanel item = {todo} key = {todo.text} />)
+          })}
+        </>
+      </div>
+    )
 
-  return (
-    <>
-      { getTodos().map(todo => {
-        return (  <TodoItemPanel item = {todo} /> )
-      })}
-    </>
-  );
+    } else {
+      return null;
+    }
+  });
+
+  return <ShowList />
+
 }
 
 export default TodoList;

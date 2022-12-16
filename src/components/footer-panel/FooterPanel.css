@@ -1,0 +1,57 @@
+.footer-container-todos {
+  background-color: white;
+  width: 570px;
+  height: 45px;
+  margin-top: 0px;
+}
+
+.footer-fake-page-todos {
+  background-color: white;
+  position: relative;
+  width: 98%;
+  height: 50%;
+  top: -17px;
+  left: 5px;
+  z-index: -1;
+  box-shadow: -1px 1px 3px Teal;
+}
+
+.footer-fake-second-page-todos {
+  background-color: white;
+  position: relative;
+  width: 96%;
+  height: 50%;
+  top: -34px;
+  left: 10px;
+  z-index: -2;
+  box-shadow: -1px 1px 3px Teal;
+}
+
+.footer-todos {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-shadow: -1px 1px 3px Teal;
+}
+
+.items-left-todo {
+  background-color: white;
+  color: Teal;
+  margin-left: 20px;
+}
+
+.filter-button-container-todo {
+  background-color: white;
+  color: Teal;
+}
+
+.clear-completed-container-todo {
+  background-color: white;
+  color: Teal;
+  margin-right: 20px;
+  cursor: pointer;
+  border: none;
+}

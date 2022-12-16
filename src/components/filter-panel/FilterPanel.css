@@ -1,0 +1,13 @@
+.filter-button-todos {
+  border: none;
+  background-color: white;
+  color: 	Teal;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.filter-border-todo {
+  border: solid #669966;
+  border-radius: 5px;
+  padding: 1px 3px;
+}

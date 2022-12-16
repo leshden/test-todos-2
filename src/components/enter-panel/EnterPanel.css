@@ -5,7 +5,7 @@
   align-items: center;
   width: 570px;
   height: 60px;
-  box-shadow: -1px 5px 3px silver;
+  box-shadow: -1px 5px 3px Teal;
 }
 
 .down-pointing-angle-container-todo {
@@ -24,11 +24,11 @@
   transform: rotate(90deg);
   top: 15%;
   left: 10px;
-  color: 	lightgray;
+  color: 	Teal;
 }
 
 input::placeholder {
-  color: lightgray;
+  color: gray;
 }
 
 .enter-text-todos {
