@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import {isLogin} from '../../features/login-state/loginState';
 import { observer } from "mobx-react";
+import {Observer} from "mobx-react-lite";
+import EnterPanel from '../enter-panel/EnterPanel'
+import TodoList from '../todo-list/TodoList'
 import './Home.css';
 
 const Home = () => {
@@ -16,17 +19,19 @@ const Home = () => {
     );
   }
 
-  const TodoList = () => {
+  const TodoListBody = () => {
     return (
       <div className='home-container'>
-        TodoList!
+        <EnterPanel />
+        <Observer>{() => <TodoList />}</Observer>
+        <Observer>{() => <div> Text</div>}</Observer>
       </div>
     );
   }
 
   const LoginOrNot = observer(() => {
     if (isLogin()) {
-      return <TodoList />
+      return <TodoListBody />
     } else {
       return <Auth />
     }

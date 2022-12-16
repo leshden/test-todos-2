@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const server = jsonServer.create();
 let userdb = JSON.parse(fs.readFileSync('./server/users.json', 'utf-8'));
-// let contactsdb = JSON.parse(fs.readFileSync('./server/contacts.json', 'utf-8'));
+let todosdb = JSON.parse(fs.readFileSync('./server/todos.json', 'utf-8'));
 
 server.use(bodyParser.urlencoded({extended: true}));
 server.use(bodyParser.json());
@@ -74,6 +74,58 @@ server.post("/api/auth/login", (req, res) => {
 
   res.status(200).json({access_token, email});
 });
+
+server.get("/api/todos/get", (req, res) => {
+  const {email} = req.query;
+
+  if (!email) {
+    const status = 401;
+    const message = 'Email is Empty';
+    res.status(status).json({status, message})
+    return;
+  }
+
+  let todos = JSON.parse(fs.readFileSync('./server/todos.json', 'utf-8'))[email];
+  res.status(200).json(todos === undefined ? {todos: []} : {todos});
+});
+
+server.post("/api/todos/add", (req, res) => {
+  const {email, text} = req.body;
+  if (!email) {
+    const status = 401;
+    const message = 'Email is Empty';
+    res.status(status).json({status, message})
+    return;
+  }
+
+  let todos = JSON.parse(fs.readFileSync('./server/todos.json', 'utf-8'));
+  let user =  todos[email] === undefined ? [] : todos[email]
+
+  const nextId = user.length + 1;
+  user.push({id: nextId, text: text, active:true});
+
+  for (let i = 0; i < user.length; ++i) {
+    user[i].id = i + 1;
+  }
+
+  todos[email] = user;
+
+  fs.writeFile(
+    "./server/todos.json",
+    JSON.stringify(todos),
+    (err, result) => {
+      if (err) {
+        const status = 401;
+        const message = err;
+        res.status(status).json({status,message});
+        return;
+      }
+    }
+  )
+
+  res.status(200).json({todos: todos[email]});
+});
+
 
 server.post("/api/contacts/get", (req, res) => {
   const {email} = req.body;

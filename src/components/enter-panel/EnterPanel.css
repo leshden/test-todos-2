@@ -1,0 +1,41 @@
+.enter-todos {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 570px;
+  height: 60px;
+  box-shadow: -1px 5px 3px silver;
+}
+
+.down-pointing-angle-container-todo {
+  width: 13%;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+.down-pointing-angle-todo {
+  position: relative;
+  width: 50%;
+  height: 70%;
+  background-color: white;
+  font-size: 30px;
+  transform: rotate(90deg);
+  top: 15%;
+  left: 10px;
+  color: 	lightgray;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+.enter-text-todos {
+  background-color: white;
+  height: 100%;
+  width: 87%;
+  font-size: 25px;
+  font-style: italic;
+  border: none;
+}

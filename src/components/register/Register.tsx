@@ -1,16 +1,14 @@
 import {useState} from 'react';
-import { useSelector } from 'react-redux'
 import Error from '../error/Error'
-import {registerAsync} from '../../features/login-state/loginStateSlice';
-import {useAppDispatch, RootState} from '../../app/store';
+import {register, error} from '../../features/login-state/loginState';
+import { useNavigate } from "react-router-dom";
 import './Register.css';
 
 const Register = () => {
-  const dispatch = useAppDispatch();
-  const { error } = useSelector((state: RootState) => state.login)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const onChangeEmail = (event: React.FormEvent<HTMLInputElement>):void => {
     setEmail(event.currentTarget.value);
@@ -22,12 +20,13 @@ const Register = () => {
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>):void => {
     event.preventDefault();
-    dispatch(registerAsync({email, password}))
+    register({email, password});
+    navigate ('/', {replace: true} );
   }
 
   const showError = () => {
-    if (error) {
-      return <Error message={error}/>
+    if (error()) {
+      return <Error message={error()}/>
     }
   }
 

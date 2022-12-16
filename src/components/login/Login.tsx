@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import Error from '../error/Error'
-import {error} from '../../features/login-state/loginState'
-import {loginU} from '../../features/login-state/loginState';
+import {loginU, error} from '../../features/login-state/loginState';
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 
